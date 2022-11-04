@@ -10,7 +10,7 @@
 
 ## 爬虫模块
 
-### 数据来源
+### 1 数据来源
 
 | 类别   | 网站            | 网址                                    |
 | ------ | --------------- | --------------------------------------- |
@@ -21,16 +21,18 @@
 | Video  | Bilibili        | https://www.bilibili.com/               |
 | Video  | Youtube         | https://www.youtube.com/                |
 
-### 要求
+### 2 要求
 
 * 一个**MongoDB**数据库
 * 在仓库`README`中给出爬取数据的**统计信息**，例如每个数据源爬取的标签数、字段覆盖率等
 
-### 爬取信息
+### 3 爬取信息
+
+......
 
 ## 检索模块
 
-### 要求
+### 1 要求
 
 * 从MongoDB中读取数据实现**综合检索**，要求无论是输入`论文`、`电子书`，都能得到相应的检索结果
 
@@ -44,13 +46,13 @@
 
   <img src="https://s2.loli.net/2022/11/04/YOKiMnTbyZVNhIk.png" alt="img" style="zoom:60%;" />
 
-### 检索接口
+### 2 检索接口
 
-
+......
 
 ## 展示模块
 
-### 要求
+### 1 要求
 
 * 设计并实现一个学术类综合搜索引擎网站，包括三个页面
 
@@ -62,11 +64,11 @@
 
 * 展示样例如下图所示：
 
-  [<img src="/Users/xuzf/Pictures/typora-imgs/xroRzQ.png" alt="xroRzQ.png" style="zoom: 33%;" />](https://imgse.com/i/xroRzQ)
+  <img src="https://s2.loli.net/2022/11/04/n2a5qh1CSuWKGPc.png" alt="微信图片 20221018190418" style="zoom:60%;" />
 
-### 展示需求
+### 2 展示需求
 
-
+......
 
 
 
