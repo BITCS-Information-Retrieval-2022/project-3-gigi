@@ -68,7 +68,48 @@
 
 ### 2 展示需求
 
-......
+### 3 API
 
+* 分页搜索的 GET 请求
 
+  * `${baseUrl}/search?q=${q}&p=${p}`    q：查询的query；p：查询第几页
+  * http://localhost:8100/search?q={bert}&p=${1}
+
+* 分页搜索的响应格式
+
+  ```json
+  {
+      "code ": code,
+      "data": {
+          "page": page,                                   // 当前第几页（从1开始）
+          "searchCostTime": search_cost_time, // 搜索用时（单位为秒）
+          "totalNums": total_nums,                   // 总查询条目数
+          "pageNums": page_nums,                  // 总页数
+          "hitList": [                                        // 当前页的命中列表
+              {
+                  "title": title,
+                  "abstract": abstract,
+                  "authors": [author1, author2, ...],
+                  "doi": doi,
+                  "url": url,
+                  "year": year,
+                  "month": month,
+                  "type": type,
+                  "volume": volume,
+                  "source_url": source_url,
+                  "pdf_url": pdf_url,
+                  "ebook_url": ebook_url,
+                  "ppt_url": ppt_url,
+                  "video_url": video_url,
+                  "citations_num": citations_num,         // 被引次数
+                  "reference_list": [ref1, ref2, ...]     // 参考文献列表
+              }
+          ],
+      }
+  }
+  ```
+
+  
+
+  
 
