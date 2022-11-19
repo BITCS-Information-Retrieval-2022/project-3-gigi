@@ -1,7 +1,7 @@
 <template>
 	<div class="logo">
 		<div class="container">
-			<img src="@/assets/logo1.svg" alt="" />
+			<img src="@/assets/logo.png" alt="" />
 			<div class="text">
 				<div class="master">GigiScholar</div>
 				<div class="slug">
