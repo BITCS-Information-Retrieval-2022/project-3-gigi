@@ -1,26 +1,33 @@
 <template>
 	<div class="list">
-		<el-empty
-			v-if="SearchResult.totalNums == 0"
-			description="没有相关内容，试试其他关键词吧~"
-			style="margin-top: 1.8rem"
-		></el-empty>
+		<el-empty v-if="SearchResult.totalNums == 0" description="没有相关内容，试试其他关键词吧~" style="margin-top: 1.8rem">
+		</el-empty>
 		<div class="hit-list">
-			<div
-				class="hit-item"
-				v-for="(item, i) in SearchResult.hitList"
-				:key="i"
-				:class="{ active: IsActive && current_index == i }"
-				@mouseenter="(IsActive = true), (current_index = i)"
-				@mouseleave="(IsActive = false), (current_index = -1)"
-			>
-				<a
-					class="title"
-					:href="item.page_url"
-					target="_blank"
-					v-html="item.title"
-				></a>
-				<div class="content" v-html="item.content"></div>
+			<div class="hit-item" v-for="(item, i) in SearchResult.hitList" :key="i"
+				:class="{ active: IsActive && current_index == i }" @mouseenter="(IsActive = true), (current_index = i)"
+				@mouseleave="(IsActive = false), (current_index = -1)">
+				<div class="title" target="_blank" v-html="item.title"></div>
+				<div class="related">
+					<a class="related-item" f="item.source_url" target="_blank">
+						<i class="iconfont icon-fire-fill"></i>&nbsp;{{ item.citations_num }}
+					</a>
+					<a class="related-item" :href="item.source_url" target="_blank">
+						<i class="iconfont icon-home-fill"></i>&nbsp;来源
+					</a>
+					<a class="related-item" :href="item.pdf_url" target="_blank">
+						<i class="iconfont icon-file-pdf-fill"></i>&nbsp;pdf
+					</a>
+					<a class="related-item" :href="item.ebook_url" target="_blank">
+						<i class="iconfont icon-book-fill"></i>&nbsp;电子书
+					</a>
+					<a class="related-item" :href="item.ppt_url" target="_blank">
+						<i class="iconfont icon-file-ppt-fill"></i>&nbsp;PPT
+					</a>
+					<a class="related-item" :href="item.video_url" target="_blank">
+						<i class="iconfont icon-video-fill"></i>&nbsp;相关视频
+					</a>
+				</div>
+				<div class="content" v-html="item.abstract"></div>
 			</div>
 		</div>
 	</div>
@@ -61,19 +68,41 @@ export default {
 <style lang="less">
 .list {
 	min-height: 7rem;
+
 	.hit-list {
 		margin-left: 1.5rem;
 		text-align: left;
 		width: 8rem;
 	}
+
 	.hit-item {
 		border-radius: 0.1rem;
 		margin-top: 0.1rem;
 		padding: 0.1rem 0.1rem 0.2rem 0.1rem;
+
 		.title {
 			font-size: 0.2rem;
 			font-weight: 900;
+			color: rgb(92, 92, 246);
+			margin-bottom: 0.1rem;
 		}
+
+		.related {
+			margin-bottom: 0.1rem;
+
+			.related-item {
+				text-decoration: none;
+				float: auto;
+				padding: 0rem 0.2rem 0rem 0rem;
+				color: rgb(0, 0, 0);
+			}
+
+			.related-item:hover {
+				color: rgb(6, 157, 52);
+				text-decoration:underline;
+			}
+		}
+
 		.content {
 			color: #666;
 			overflow: hidden;
@@ -88,6 +117,7 @@ export default {
 			}
 		}
 	}
+
 	.active {
 		box-shadow: 0.05rem 0.05rem 0.1rem #999;
 		background-color: #eee;
