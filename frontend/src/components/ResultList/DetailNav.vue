@@ -1,9 +1,11 @@
 <template>
 	<div class="detail-nav">
-		<div class="logo">
-			Gigi
-			<!-- <div class="beta">beta</div> -->
-		</div>
+		<router-link :to="{ path: '/' }">
+			<div class="logo">
+				Gigi
+				<div class="beta">scholar</div>
+			</div>
+		</router-link>
 		<div class="search">
 			<search-box-detail></search-box-detail>
 		</div>
@@ -28,27 +30,29 @@ export default {
 	},
 };
 </script>
-<script setup>
-
-function gomore() {
-	alert("别点了，不想写前端了...");
-}
-function goset() {
-	alert("别点了，不想写前端了...");
-}
-</script>
 
 <style lang="less" scoped>
+a {
+	text-decoration: none;
+	color: #000;
+}
+.router-link-active {
+	text-decoration: none;
+	color: #000;
+}
+
 .detail-nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.1rem 0.15rem 0.15rem 0.2rem;
+	padding: 0.1rem 0.15rem 0.1rem 0.2rem;
 	border-bottom: 1px solid #999;
+	border-bottom: 0px;
 	position: sticky;
 	position: -webkit-sticky; // 兼容 -webkit 内核的浏览器
 	top: 0px;
-	background-color: #ccc;
+	// background-color: #ccc;
+	background-color: rgb(189, 67, 62);
 	.logo {
 		font-size: 0.3rem;
 		font-weight: 900;
@@ -57,18 +61,20 @@ function goset() {
 		.beta {
 			position: absolute;
 			top: 0;
-			left: 0.38rem;
-			background-color: rgb(255, 102, 14);
+			left: 0.4rem;
+			// background-color: rgb(255, 102, 14);
+			background-color: #2600ff;
 			border-radius: 0.1rem;
 			font-size: 0.13rem;
 			padding: 0 0.05rem 0 0.05rem;
 			font-weight: 900;
+			color: rgb(255, 255, 255);
 		}
 	}
 	.search {
 		position: absolute;
 		top: 0.1rem;
-		left: 1rem;
+		left: 1.2rem;
 	}
 	.right {
 		display: flex;

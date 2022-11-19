@@ -193,7 +193,7 @@ export default {
 	width: 5rem;
 	margin: auto;
 	border-radius: 0.2rem;
-	box-shadow: 0.05rem 0.05rem 0.1rem #666;
+	// box-shadow: 0.05rem 0.05rem 0.1rem #666;
 	.search {
 		display: block;
 		position: relative;

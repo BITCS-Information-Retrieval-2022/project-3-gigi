@@ -25,6 +25,7 @@ computed: {
   .tips{
     text-align: left;
     padding-left: 1.5rem;
+    padding-top: 0.1rem;
   }
 }
 </style>
