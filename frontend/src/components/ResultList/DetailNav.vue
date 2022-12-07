@@ -12,12 +12,9 @@
 		<div class="right">
 			<router-link :to="{ path: '/' }">
 				<svg class="icon" aria-hidden="true">
-					<use xlink:href="#icon-yingyong"></use>
+					<use xlink:href="#icon-Arrow-return"></use>
 				</svg>
 			</router-link>
-			<!-- <svg class="icon" aria-hidden="true" @click="gomore">
-				<use xlink:href="#icon-yingyongchengxu"></use>
-			</svg> -->
 		</div>
 	</div>
 </template>

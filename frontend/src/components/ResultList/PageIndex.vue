@@ -122,7 +122,7 @@ export default {
 		margin: 0.4rem 0 0rem 1.5rem;
 		padding-bottom: 1rem;
 		width: 7rem;
-		color: blue;
+		color: rgb(189, 67, 62);
 		display: flex;
 		justify-content: left;
 		align-items: center;
@@ -161,7 +161,7 @@ export default {
 		}
 		.active {
 			color: #fff;
-			background-color: rgb(92, 92, 255);
+			background-color: rgb(189, 67, 62);
 		}
 	}
 }

@@ -27,7 +27,8 @@
 						<i class="iconfont icon-video-fill"></i>&nbsp;相关视频
 					</a>
 				</div>
-				<div class="content" v-html="item.abstract"></div>
+				<!-- <div class="content" v-html="item.abstract"></div> -->
+				<abstract :rawText=item.abstract></abstract>
 			</div>
 		</div>
 	</div>
@@ -36,6 +37,7 @@
 <script>
 // import store from "@/store/index.js";
 import { mapState, mapMutations } from "vuex";
+import Abstract from "@/components/ResultList/Abstract.vue";
 
 export default {
 	data() {
@@ -62,6 +64,9 @@ export default {
 	computed: {
 		...mapState(["SearchResult"]),
 	},
+	components: {
+		Abstract,
+	},
 };
 </script>
 
@@ -83,7 +88,8 @@ export default {
 		.title {
 			font-size: 0.2rem;
 			font-weight: 900;
-			color: rgb(92, 92, 246);
+			// color: rgb(92, 92, 246);
+			color: rgb(189, 67, 62);
 			margin-bottom: 0.1rem;
 		}
 
@@ -98,8 +104,8 @@ export default {
 			}
 
 			.related-item:hover {
-				color: rgb(6, 157, 52);
-				text-decoration:underline;
+				color: rgb(189, 67, 62);
+				// text-decoration:underline;
 			}
 		}
 
