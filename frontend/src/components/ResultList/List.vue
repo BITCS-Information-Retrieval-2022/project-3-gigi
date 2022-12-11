@@ -6,25 +6,27 @@
 			<div class="hit-item" v-for="(item, i) in SearchResult.hitList" :key="i"
 				:class="{ active: IsActive && current_index == i }" @mouseenter="(IsActive = true), (current_index = i)"
 				@mouseleave="(IsActive = false), (current_index = -1)">
-				<div class="title" target="_blank" v-html="item.title"></div>
+				<router-link :to="{ path: '/detail', query: {index: i, id: item.id} }">
+					<div class="title" target="_blank" v-html="item.title"></div>
+				</router-link>
 				<div class="related">
-					<a class="related-item" f="item.source_url" target="_blank">
-						<i class="iconfont icon-fire-fill"></i>&nbsp;{{ item.citations_num }}
+					<a class="related-item" v-if="isValidURL(item.source_url)" target="_blank">
+						<i class="iconfont icon-bank"></i>&nbsp;来源
 					</a>
-					<a class="related-item" :href="item.source_url" target="_blank">
-						<i class="iconfont icon-home-fill"></i>&nbsp;来源
+					<a class="related-item" v-if="isValidURL(item.pdf_url)" target="_blank">
+						<i class="iconfont icon-file-pdf"></i>&nbsp;PDF
 					</a>
-					<a class="related-item" :href="item.pdf_url" target="_blank">
-						<i class="iconfont icon-file-pdf-fill"></i>&nbsp;pdf
+					<a class="related-item" v-if="isValidURL(item.ebook_url)" target="_blank">
+						<i class="iconfont icon-book"></i>&nbsp;电子书
 					</a>
-					<a class="related-item" :href="item.ebook_url" target="_blank">
-						<i class="iconfont icon-book-fill"></i>&nbsp;电子书
+					<a class="related-item" v-if="isValidURL(item.ppt_url)" :href="item.ppt_url" target="_blank">
+						<i class="iconfont icon-file-ppt"></i>&nbsp;PPT
 					</a>
-					<a class="related-item" :href="item.ppt_url" target="_blank">
-						<i class="iconfont icon-file-ppt-fill"></i>&nbsp;PPT
+					<a class="related-item" v-if="isValidURL(item.video_url)" target="_blank">
+						<i class="iconfont icon-video1"></i>&nbsp;相关视频
 					</a>
-					<a class="related-item" :href="item.video_url" target="_blank">
-						<i class="iconfont icon-video-fill"></i>&nbsp;相关视频
+					<a class="related-item" v-if="item.citations_num > 0" target="_blank">
+						<i class="iconfont icon-fire"></i>&nbsp;{{ item.citations_num }}
 					</a>
 				</div>
 				<!-- <div class="content" v-html="item.abstract"></div> -->
@@ -67,6 +69,11 @@ export default {
 	components: {
 		Abstract,
 	},
+	methods: {
+        isValidURL(url){
+            return url !== null && url !== undefined && url !== '';
+        }
+    },
 };
 </script>
 
@@ -88,9 +95,12 @@ export default {
 		.title {
 			font-size: 0.2rem;
 			font-weight: 900;
-			// color: rgb(92, 92, 246);
 			color: rgb(189, 67, 62);
 			margin-bottom: 0.1rem;
+		}
+		
+		a {
+			text-decoration: none;
 		}
 
 		.related {

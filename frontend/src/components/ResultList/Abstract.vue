@@ -36,17 +36,17 @@ export default {
         this.$nextTick(() => {
             setTimeout(() => {
                 this.calculateText();
-            }, 300);
+            }, 0);
         });
     },
     methods: {
         calculateText() {
             // 这是默认两行数据的高度，一行的高度可以自定义 可以*3 *4达到三行或者四行显示展示和收起的效果
-            let twoHeight = 0.16 * 4;
+            let twoHeight = 0.16 * 4.5;
             this.textHeight = `${twoHeight}rem`;
             let curHeight = this.$refs.desc.offsetHeight;
-            console.log("curHeight", curHeight);
-            console.log("twoHeight", twoHeight);
+            // console.log("curHeight", curHeight);
+            // console.log("twoHeight", twoHeight);
             if (curHeight > twoHeight) {
                 this.status = true;
                 this.idShowText = true;
@@ -88,11 +88,8 @@ export default {
     }
 
     .openSpan {
-        // position: absolute;
-        // right: 0;
-        // bottom: 0;
         position: absolute;
-        bottom: 0;
+        bottom: 0.03rem;
         right: 0;
         // background-color: rgb(255, 102, 14);
         background-color: rgb(189, 67, 62);

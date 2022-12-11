@@ -16,12 +16,10 @@ import List from "@/components/ResultList/List.vue";
 import RelatedSearch from "@/components/ResultList/RelatedSearch.vue";
 import PageIndex from "@/components/ResultList/PageIndex.vue";
 
-import { onMounted, onBeforeMount, reactive } from "vue";
-import { useRoute } from "vue-router";
-import { getSearchResult } from "@/api/index.js";
+import { reactive } from "vue";
 
-import store from "@/store/index.js";
 export default {
+	name: "ResultList",
 	components: {
 		DetailNav,
 		SomeTips,
@@ -31,23 +29,12 @@ export default {
 	},
 
 	setup(props) {
-		const route = useRoute();
 		let state = reactive({
 			hitList: [],
 			page: 0,
 			pageNums: 0,
 			searchCostTime: 0,
 			totalNums: 0,
-		});
-		onBeforeMount(async () => {
-			// 直接放到SearchBoxDetail中执行，不然父子组件的执行顺序不对
-			// let q = route.query.q;
-			// let p = route.query.p;
-			// let res = await getSearchResult(q, p);
-			// console.log("getSearchResult: ", res.data);
-			// store.commit("SetSearchResult", res.data);
-			// // 注意这里，刷新或者进入这个界面也需要把搜索值提交上去
-			// store.commit("SetSearchValue", q);
 		});
 		return {
 			state,

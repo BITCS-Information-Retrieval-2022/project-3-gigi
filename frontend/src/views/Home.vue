@@ -1,6 +1,5 @@
 <template>
 	<div class="home">
-		<!-- <sample-nav></sample-nav> -->
 		<logo></logo>
 		<search-box></search-box>
 		<page-footer></page-footer>
@@ -17,7 +16,6 @@ import PageFooter from "@/components/PageFooter.vue"
 export default {
 	name: "Home",
 	components: {
-		// SampleNav,
 		Logo,
 		SearchBox,
 		PageFooter
