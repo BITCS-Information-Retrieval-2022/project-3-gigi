@@ -65,11 +65,11 @@
 
   * 搜索页面
   
-  ![image-20221211133524659](/Users/xuzf/Pictures/typora-imgs/image-20221211133524659.png)
+  ![image-20221211133524659](https://s2.loli.net/2022/12/11/MlfnszYwdrKjV7c.png)
   
   * 搜索结果列表
   
-    ![image-20221211133639580](/Users/xuzf/Pictures/typora-imgs/image-20221211133639580.png)
+    ![image-20221211133639580](https://s2.loli.net/2022/12/11/KlWuoinjNSGOQwr.png)
   
   * 论文详情页
 
@@ -121,7 +121,6 @@
   }
   ```
   
-
 * 论文详情页的 GET 请求
   * `${baseUrl}/detail?id=${id}`    id：论文 id
   * http://localhost:8100/detail?id={1}
