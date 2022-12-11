@@ -94,26 +94,26 @@
           "pageNums": page_nums,                  // 总页数
           "hitList": [                                        // 当前页的命中列表
               {
-                  id : "1",
-                  title: "Multiplex Graph Neural Network ...",
-                  abstract: "Extractive text summarization aims at ...",
-                  authors: ["Baoyu Jing", "Zeyu You", "Tao Yang"],
-                  doi: "10.18653/v1/2021.emnlp-main.11",
-                  url: "https://sci-hub.ee/10.18653/v1/2021.emnlp-main.11",
-                  year: 2021,
-                  month: 11,
-                  type: "conference",
-                  volume: "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
-                  source_url: "https://aclanthology.org/2021.emnlp-main.11/",
-                  pdf_url: "https://aclanthology.org/2021.emnlp-main.11.pdf",
-                  ebook_url: "https://aclanthology.org/2021.emnlp-main.11.pdf",
-                  ppt_url: "https://www.slideserve.com/vera/text-summarization",
-                  video_url: "https://aclanthology.org/2021.emnlp-main.11.mp4",
-                  citations_num: 31,         // 被引次数
-                  reference_list: [          // 参考文献列表
-                      {id: 0, title: "Multiplex ...", year: "2021"}, 
-                      {id: 4, title: "Multiplex ...", year: "2021"}, 
-                      {id: 5, title: "Multiplex ...", year: "2021"}
+                  "id" : "1",
+                  "title": "Multiplex Graph Neural Network ...",
+                  "abstract": "Extractive text summarization aims at ...",
+                  "authors": ["Baoyu Jing", "Zeyu You", "Tao Yang"],
+                  "doi": "10.18653/v1/2021.emnlp-main.11",
+                  "url": "https://sci-hub.ee/10.18653/v1/2021.emnlp-main.11",
+                  "year": 2021,
+                  "month": 11,
+                  "type": "conference",
+                  "volume": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+                  "source_url": "https://aclanthology.org/2021.emnlp-main.11/",
+                  "pdf_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
+                  "ebook_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
+                  "ppt_url": "https://www.slideserve.com/vera/text-summarization",
+                  "video_url": "https://aclanthology.org/2021.emnlp-main.11.mp4",
+                  "citations_num": 31,         // 被引次数
+                  "reference_list": [          // 参考文献列表
+                      {"id": "0", "title": "Multiplex ...", "year": "2021"}, 
+                      {"id": "4", "title": "Multiplex ...", "year": "2021"}, 
+                      {"id": "5", "title": "Multiplex ...", "year": "2021"}
                   ]
               }
           ],
@@ -129,26 +129,26 @@
 
   ```json
   {
-      id: "1",
-      title: "Multiplex Graph Neural Network for Extractive Text Summarization",
-      authors: ["Baoyu Jing", "Zeyu You", "Tao Yang"],
-      abstract: "Extractive text summarization aims at ...",
-      doi: "10.18653/v1/2021.emnlp-main.11",
-      year: 2021,
-      month: 11,
-      type: "Conference",
-      venue: "EMNLP",
-      volume: "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
-      source_url: "https://aclanthology.org/2021.emnlp-main.11/",
-      pdf_url: "https://aclanthology.org/2021.emnlp-main.11.pdf",
-      ebook_url: "https://aclanthology.org/2021.emnlp-main.11.pdf",
-      ppt_url: "https://www.slideserve.com/vera/text-summarization",
-      video_url: "https://aclanthology.org/2021.emnlp-main.11.mp4",
-      citations_num: 31,         // 被引次数
-      reference_list: [          // 参考文献列表
-          {id: 0, title: "Multiplex ...", year: "2021"}, 
-          {id: 4, title: "Multiplex ...", year: "2021"}, 
-          {id: 5, title: "Multiplex ...", year: "2021"}
+      "id": "1",
+      "title": "Multiplex Graph Neural Network for Extractive Text Summarization",
+      "authors": ["Baoyu Jing", "Zeyu You", "Tao Yang"],
+      "abstract": "Extractive text summarization aims at ...",
+      "doi": "10.18653/v1/2021.emnlp-main.11",
+      "year": 2021,
+      "month": 11,
+      "type": "Conference",
+      "venue": "EMNLP",
+      "volume": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+      "source_url": "https://aclanthology.org/2021.emnlp-main.11/",
+      "pdf_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
+      "ebook_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
+      "ppt_url": "https://www.slideserve.com/vera/text-summarization",
+      "video_url": "https://aclanthology.org/2021.emnlp-main.11.mp4",
+      "citations_num": 31,         // 被引次数
+      "reference_list": [          // 参考文献列表
+          {"id": "0", "title": "Multiplex ...", "year": "2021"}, 
+          {"id": "4", "title": "Multiplex ...", "year": "2021"}, 
+          {"id": "5", "title": "Multiplex ...", "year": "2021"}
       ]     
   }
   ```
