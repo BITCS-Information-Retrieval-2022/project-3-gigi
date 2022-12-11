@@ -7,6 +7,9 @@ export default createStore({
         SearchResult: {
             hitList: [],
         },
+        DetailResult: {
+            item: {}
+        },
         Jwt: JSON.parse(localStorage.getItem("jwt")) || '',
     },
     mutations: {
@@ -23,6 +26,9 @@ export default createStore({
         },
         SetSearchResult(state, value) {
             state.SearchResult = value
+        },
+        SetDetailResult(state, value) {
+            state.DetailResult.item = value
         },
         SetJwt(state, value) {
             console.log("将jwt提交到了vuex")

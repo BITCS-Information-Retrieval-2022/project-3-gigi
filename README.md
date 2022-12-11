@@ -87,6 +87,7 @@
           "pageNums": page_nums,                  // 总页数
           "hitList": [                                        // 当前页的命中列表
               {
+                  "id" : id,
                   "title": title,
                   "abstract": abstract,
                   "authors": [author1, author2, ...],

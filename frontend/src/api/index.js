@@ -18,6 +18,13 @@ export function getIP(){
 export function getSearchResult(q, p) {
   return axios.get(`${baseUrl}/search?q=${q}&p=${p}`)
 }
+
+//获取单篇论文具体信息
+export function getDetail(id) {
+  console.log('getDetail')
+  return axios.get(`${baseUrl}/detail?id=${id}`)
+}
+
 //根据输入的部分文本获取搜索建议
 export function getSearchSuggest(someText) {
   return axios.get(`${baseUrl}/search/suggest?input=${someText}`)
