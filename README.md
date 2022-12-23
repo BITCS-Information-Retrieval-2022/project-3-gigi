@@ -48,7 +48,8 @@
       ```bash
       curl 'localhost:9200'
       ```
-      <img width="355" alt="image" src="https://user-images.githubusercontent.com/72379300/209351887-7dbaadf2-a7df-42dd-bbc2-7bea51674f50.png">
+      <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
+
 
 
 ### 3 前端环境配置
