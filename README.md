@@ -105,7 +105,7 @@
   
   ```json
   {
-    "title": String,
+    "title": "String",
     "authors": String,
     "abstract": String,
     "doi": String,
