@@ -98,6 +98,10 @@
 ### 2 检索模块
 
 #### 2.1 设计原理
+* **创建index**
+  先创建index，然后从mongodb读取已经存好的数据，对于每条数据根据相应的json格式构建字段，最后将构建好的json存入elaticsearch。
+* **对齐相应的ppt和视频**
+  现将paper和ebook存入mongodb，然后对于每个paper和ebook，我根据其title取相应的ppt和video网站上爬虫，将爬下来的最相关的10个存入mongodb，然后我们将这10个video或ppt的title与paper或ebook的title分词，如果两个title分词后的重叠率大于50%，我们则认为是相关的（这里的重叠只去掉标点，同步大小写后单词相同）。
 
 #### 2.2 效果展示
 
