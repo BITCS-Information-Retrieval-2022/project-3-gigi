@@ -367,18 +367,13 @@
 #### 2.3 代码结构说明
   ```
   .
-  ├── requirements.txt   // 依赖的第三方库、项目配置等信息
-  ├── src
-  │   ├── App.vue    // 根组件
-  │   ├── api        // 网络请求API
-  │   ├── assets     // 素材资源
-  │   ├── components // 组件库
-  │   ├── main.js    // 主入口
-  │   ├── mock       // mock 单元测试模块
-  │   ├── router     // 路由模块
-  │   ├── store      // vuex状态管理
-  │   └── views      // 三个页面的视图组件
-  └── vue.config.js  // vue 配置文件
+
+  ├── communicator.py // 主入口，前后端通信模块
+  ├── api
+  │   ├── cal_match_rate.py    // 计算对齐准确率
+  │   ├── create_index.py        // index创建
+  │   ├── search_index.py     // index查询
+  └──requirements.txt   // 依赖的第三方库、项目配置等信息
   ```
 
 
