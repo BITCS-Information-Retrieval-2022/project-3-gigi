@@ -49,7 +49,7 @@
       curl 'localhost:9200'
       ```
       <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
-    
+   
 2. 检索模块运行
    * 将仓库克隆至本地
 
@@ -100,7 +100,7 @@
 #### 2.1 设计原理
 * **创建index**
   在python中使用 `elasticsearch` 库实现与elasticsearch搜索引擎的交互，使用 `pymongo` 库实现与mongodb数据库的交互。
- 
+
   通过 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取mongodb中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
   
   ```json
@@ -251,4 +251,20 @@
    <img src="https://s2.loli.net/2022/12/23/lj7wCqDhNWuHvx3.png" alt="img" style="zoom:20%;" />
 
    
-
+#### 3.3 代码结构说明
+```
+.
+├── package.json   // 依赖的第三方库、项目配置等信息
+├── public         // 公共资源
+├── src
+│   ├── App.vue    // 根组件
+│   ├── api        // 网络请求API
+│   ├── assets     // 素材资源
+│   ├── components // 组件库
+│   ├── main.js    // 主入口
+│   ├── mock       // mock 单元测试模块
+│   ├── router     // 路由模块
+│   ├── store      // vuex状态管理
+│   └── views      // 三个页面的视图组件
+└── vue.config.js  // vue 配置文件
+```
