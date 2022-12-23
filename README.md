@@ -298,7 +298,10 @@
   index检索部分，针对前端的查询传入的查询字符串，使用 `elasticsearch` 库中的search函数将查询字符串与index中每个数据项的title进行匹配，search函数将按照字符串相似度从高到低返回匹配结果，得到匹配结果后，我们将对结果进行处理，并排序得到最终结果。
   
   得到匹配结果后，我们将遍历查询结果，对每个item进行处理，并构建results\[\]：
-  1. 若item的title与查询字符串完全一致：清空results\[\]，并将`{"item": item, "priority": 3, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中，跳出循环。
+  1. 若item的title与查询字符串完全一致：清空results\[\]，将如下json对象添加到results\[\]中，跳出循环：
+  ```python
+  results.append({"item": item, "priority": 3, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
+  ```
  
   2. 若item的title中包含查询字符串：将`{"item": item, "priority": 2, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中。
 
