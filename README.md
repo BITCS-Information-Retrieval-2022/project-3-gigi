@@ -49,7 +49,7 @@
       curl 'localhost:9200'
       ```
       <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
-   
+    
 2. 检索模块运行
    * 将仓库克隆至本地
 
@@ -99,9 +99,9 @@
 
 #### 2.1 设计原理
 * **创建index**
-  在python中使用 `elasticsearch` 库实现与elasticsearch搜索引擎的交互，使用 `pymongo` 库实现与mongodb数据库的交互。
-
-  通过 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取mongodb中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
+  使用 `elasticsearch` 库实现与ElasticSearch搜索引擎的交互，使用 `pymongo` 库实现与MongoDB数据库的交互。
+ 
+  通过 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取MongoDB中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
   
   ```json
   {
@@ -129,6 +129,24 @@
 * **对齐相应的ppt和视频**
 
   先将paper和ebook存入mongodb，然后对于每个paper和ebook，我根据其title取相应的ppt和video网站上爬虫，将爬下来的最相关的10个存入mongodb，然后我们将这10个video或ppt的title与paper或ebook的title分词，如果两个title分词后的重叠率大于50%，我们则认为是相关的（这里的重叠只去掉标点，同步大小写后单词相同）。
+
+* **检索index**
+  针对前端的查询传入的查询字符串，使用 `elasticsearch` 库中的search函数将查询字符串与index中每个数据项的title进行匹配，search函数将按照字符串相似度从高到低返回匹配结果，得到匹配结果后，我们将对结果进行处理，并排序得到最终结果。
+  
+  得到匹配结果后，我们将遍历查询结果，对每个item进行处理，并构建results\[\]：
+  1. 若item的title与查询字符串完全一致：清空results\[\]，并将`{"item": item, "priority": 3, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中，跳出循环。
+ 
+  2. 若item的title中包含查询字符串：将`{"item": item, "priority": 2, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中。
+
+
+  3. 若item的title中不包含查询字符串：将`{"item": item, "priority": 1, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中
+  
+  
+  对于results\[\]中的item，根据"priority"、"year"、"citations"字段进行排序：
+  
+  ```python
+  sorted_results = sorted(results, key=lambda x: (-x['priority'], x['year'], -x['citations']))
+  ```
 
 #### 2.2 效果展示
 
@@ -251,20 +269,4 @@
    <img src="https://s2.loli.net/2022/12/23/lj7wCqDhNWuHvx3.png" alt="img" style="zoom:20%;" />
 
    
-#### 3.3 代码结构说明
-```
-.
-├── package.json   // 依赖的第三方库、项目配置等信息
-├── public         // 公共资源
-├── src
-│   ├── App.vue    // 根组件
-│   ├── api        // 网络请求API
-│   ├── assets     // 素材资源
-│   ├── components // 组件库
-│   ├── main.js    // 主入口
-│   ├── mock       // mock 单元测试模块
-│   ├── router     // 路由模块
-│   ├── store      // vuex状态管理
-│   └── views      // 三个页面的视图组件
-└── vue.config.js  // vue 配置文件
-```
+
