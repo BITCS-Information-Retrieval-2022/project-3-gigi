@@ -287,10 +287,42 @@
   
 * **前端通信**
 
-  前端通信部分使用
+  前端通信部分使用 `Flask` 库实现，`Flask` 是一个针对Python的轻量级Web框架。针对前端的请求类型，我们注册了两个路由，分别用于返回查询字符串对应的查询结果，和一篇特定论文/电子书的具体信息：
   
+  Search路由接收来自前端的查询字符串，并返回对应的查询结果列表：
+  
+  ```python
+  @app.route('/search', methods=['POST'])
+  @cross_origin()
+  def getSearchData():
+    xxx 
+    return res
+  ```
+  
+  Detail路由接收来自前端的查询字符串，并返回对应的查询结果列表：
+  
+  ```python
+  @app.route('/detail', methods=['POST'])
+  @cross_origin()
+  def getDetailData():
+    xxx 
+    return res
+  ```
+  
+  服务器运行：
+  
+  ```python
+  app.run(host='0.0.0.0', port=12222)
+  ```
 
 #### 2.2 效果展示
+
+1. 关键字检索：
+<img width="451" alt="image" src="https://user-images.githubusercontent.com/72379300/209373033-7e509ff6-c5df-46e4-ab16-9fa21c0d5e14.png">
+
+2. 论文id检索：
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/72379300/209373107-fdc03dc5-9717-433d-b76f-8b45bfc64fc9.png">
+
 
 
 ### 3 展示模块
