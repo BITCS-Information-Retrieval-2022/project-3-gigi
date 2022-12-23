@@ -49,17 +49,8 @@
       curl 'localhost:9200'
       ```
       <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
-      
-   * python elasticsearch库安装
-      ```bash
-      pip install elasticsearch
-      ```
-2. Flask库安装
-    ```bash
-    pip install Flask
-    ```
     
-3. 检索模块运行
+2. 检索模块运行
    * 将仓库克隆至本地
 
    * 切换到 backend 目录下：`cd project-3-gigi/backend`
