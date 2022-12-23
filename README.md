@@ -177,6 +177,34 @@
 
 #### 1.2 效果展示
 
+#### 1.3 代码结构说明
+
+```shell
+.
+├── gigi_spider
+│   ├── __init__.py
+│   ├── items.py
+│   ├── List	
+│   │   ├── acm_url_list.txt	// 待爬取区间
+│   │   ├── done_page.txt		// 已爬取页面
+│   │   ├── done_paper.txt		// 已爬取项目(论文为主)
+│   │   └── done_split.txt		// 已爬取区间
+│   ├── log
+│   ├── middlewares.py	// 中间件，主要处理各种请求
+│   ├── pipelines.py	// 流水线，与MongoDB交互
+│   ├── settings.py		// 具体配置
+│   └── spiders
+│       ├── acm.py		// ACM DL解析逻辑
+│       └── __init__.py
+├── other_spider
+│   ├── MyBiliCrawler.py	// Bilibili爬虫
+│   ├── MyLibgenCrawler.py	// library genesis爬虫
+│   └── MyYouTubeCrawler.py	// Youtube爬虫
+├── requirements.txt
+└── scrapy.cfg
+```
+
+
 ### 2 检索模块
 
 #### 2.1 设计原理
