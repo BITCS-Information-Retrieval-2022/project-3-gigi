@@ -30,6 +30,14 @@
 
 ### 2 检索环境配置
 
+1. ElasticSearch配置
+  * ElasticSearch安装并解压
+  
+   ```bash
+   wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-linux-x86_64.tar.gz
+   tar -zxvf elasticsearch-7.13.2-linux-x86_64.tar.gz -C /usr/local
+   ```
+
 ### 3 前端环境配置
 
 前端环境依赖于 NodeJs 环境和 Vue3框架，具体依赖的第三方库可参见 `frontend/package.json`
