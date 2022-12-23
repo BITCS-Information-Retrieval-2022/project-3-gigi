@@ -106,21 +106,21 @@
   ```json
   {
     "title": "String",
-    "authors": String,
-    "abstract": String,
-    "doi": String,
-    "year": Integer,
-    "month": Integer,
-    "type": String,
-    "venue": String,
-    "volume": String,
-    "citations_num": Integer,
-    "source_url": String,
-    "pdf_url": String,
-    "ppt_url": String,
-    "ppt_title": String,
-    "video_url": String,
-    "video_title": String
+    "authors": "String",
+    "abstract": "String",
+    "doi": "String",
+    "year": "Integer",
+    "month": "Integer",
+    "type": "String",
+    "venue": "String",
+    "volume": "String",
+    "citations_num": "Integer",
+    "source_url": "String",
+    "pdf_url": "String",
+    "ppt_url": "String",
+    "ppt_title": "String",
+    "video_url": "String",
+    "video_title": "String"
   }  
   ```
   
