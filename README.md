@@ -183,8 +183,11 @@
 
 2. 搜索结果列表展示页
 
-   <img src="https://s2.loli.net/2022/12/23/JkSvAnDIdNtUbFY.png" alt="img" style="zoom:50%;" />
+   <img src="https://s2.loli.net/2022/12/23/F7Zp61qultx5jQV.png" alt="img" style="zoom: 33%;" />
 
 3. 搜索结果详情页
 
-   <img src="https://s2.loli.net/2022/12/23/SGU8OgmWNf7qQsB.png" alt="img" style="zoom:50%;" />
+   <img src="https://s2.loli.net/2022/12/23/lj7wCqDhNWuHvx3.png" alt="img" style="zoom:20%;" />
+
+   
+
