@@ -31,11 +31,11 @@
 ### 2 检索环境配置
 
 1. ElasticSearch配置
+
   * ElasticSearch安装并解压
-  
    ```bash
-   wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-linux-x86_64.tar.gz
-   tar -zxvf elasticsearch-7.13.2-linux-x86_64.tar.gz -C /usr/local
+     wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-linux-x86_64.tar.gz
+     tar -zxvf elasticsearch-7.13.2-linux-x86_64.tar.gz -C /usr/local
    ```
 
 ### 3 前端环境配置
