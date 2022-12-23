@@ -10,7 +10,7 @@
 | 钱海   | 3220220954 | 爬虫：实现YouTube、B站、library genesis 电子书网站爬虫       |
 | 张成喆 | 3120220990 | 爬虫：实现ACM DL、SciHub、PPT Silver爬虫，进行MongoDB数据存取 |
 | 米昊天 | 3120220959 | 后端：主要负责检索模块，实现后端与前端的通信和es检索结果的筛选、排序 |
-| 张圃瑒 | 3120220994 | 后端：主要负责检索模块，将爬虫数据写入es，实现分页与id搜索，计算匹配率 |
+| 张圃瑒 | 3120220994 | 后端：主要负责检索模块，创建index，将爬虫数据存入es，实现分页与id搜索 |
 | 徐正斐 | 3120220978 | 前端：构建前端的基本框架和组件，完成状态管理、路由交互、网络请求和单元测试 |
 | 杨欣运 | 3120221010 | 前端：构建前端部分框架，修改一些bug                          |
 
@@ -64,9 +64,9 @@
 
    * 切换到 backend 目录下：`cd project-3-gigi/backend`
 
-   * 安装依赖的第三方库：`pip install requirement.txt`
+   * 安装依赖的第三方库：`pip install -r requirements.txt`
 
-   * 启动前端程序：`npm run serve`
+   * 运行检索模块：`python communicator.py`
 
 
 ### 3 前端环境配置
