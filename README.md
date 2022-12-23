@@ -268,5 +268,22 @@
 
    <img src="https://s2.loli.net/2022/12/23/lj7wCqDhNWuHvx3.png" alt="img" style="zoom:20%;" />
 
+#### 3.3 代码结构说明
+ ```
+ .
+ ├── package.json   // 依赖的第三方库、项目配置等信息
+ ├── public         // 公共资源
+ ├── src
+ │   ├── App.vue    // 根组件
+ │   ├── api        // 网络请求API
+ │   ├── assets     // 素材资源
+ │   ├── components // 组件库
+ │   ├── main.js    // 主入口
+ │   ├── mock       // mock 单元测试模块
+ │   ├── router     // 路由模块
+ │   ├── store      // vuex状态管理
+ │   └── views      // 三个页面的视图组件
+ └── vue.config.js  // vue 配置文件
+ ```
    
 
