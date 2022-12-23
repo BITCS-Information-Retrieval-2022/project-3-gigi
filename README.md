@@ -126,11 +126,26 @@
       ./bin/elasticsearch
       ```
       
-   * 检查运行结果
+   * 测试运行：输入```curl 'localhost:9200'```，出现如下内容，证明运行成功：
       ```bash
-      curl 'localhost:9200'
+      {
+        "name" : "2080",
+        "cluster_name" : "my-application",
+        "cluster_uuid" : "ky0sZMTgRdCE7kAOkt2rBA",
+        "version" : {
+          "number" : "7.3.1",
+          "build_flavor" : "default",
+          "build_type" : "tar",
+          "build_hash" : "4749ba6",
+          "build_date" : "2019-08-19T20:19:25.651794Z",
+          "build_snapshot" : false,
+          "lucene_version" : "8.1.0",
+          "minimum_wire_compatibility_version" : "6.8.0",
+          "minimum_index_compatibility_version" : "6.0.0-beta1"
+        },
+        "tagline" : "You Know, for Search"
+      }
       ```
-      <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
     
 2. 检索模块运行
    * 将仓库克隆至本地
@@ -139,7 +154,18 @@
 
    * 安装依赖的第三方库：`pip install -r requirements.txt`
 
-   * 运行检索模块：`python communicator.py`
+   * 运行检索模块：`python communicator.py`，出现如下内容，证明运行成功：
+     ```bash
+     * Serving Flask app 'communicator' (lazy loading)
+     * Environment: production
+       WARNING: This is a development server. Do not use it in a production deployment.
+       Use a production WSGI server instead.
+     * Debug mode: off
+     * Running on all addresses (0.0.0.0)
+       WARNING: This is a development server. Do not use it in a production deployment.
+     * Running on http://127.0.0.1:12222
+     * Running on http://10.108.17.218:12222 (Press CTRL+C to quit)
+     ```
 
 
 ### 3 前端环境配置
@@ -262,9 +288,9 @@
   
   通过 `es.create(index='paper', id=id, body=json_item)` 将创建好的json格式对象导入elasticsearch下名为 `paper` 的index中，其中 `id` 为每个数据项的唯一标识，用于前端的查询。
   
-* **对齐相应的ppt和视频**
+* **ppt、video对齐**
 
-  先将paper和ebook存入mongodb，然后对于每个paper和ebook，我根据其title取相应的ppt和video网站上爬虫，将爬下来的最相关的10个存入mongodb，然后我们将这10个video或ppt的title与paper或ebook的title分词，如果两个title分词后的重叠率大于50%，我们则认为是相关的（这里的重叠只去掉标点，同步大小写后单词相同）。
+  ppt、video对齐部分，针对MongoDB数据库中的爬虫数据，根据每个item的title在ppt和video网站上进行爬虫，存储10个最相关ppt、video的url和title。对10个最相关ppt、video的title与paper、ebook的title分词，并计算分词后的重叠率，若大于50%，则认为是相关的（重叠指：去掉标点并同步大小写后，word相同）。
 
 * **index检索**
 
@@ -321,7 +347,7 @@
 <img width="451" alt="image" src="https://user-images.githubusercontent.com/72379300/209373033-7e509ff6-c5df-46e4-ab16-9fa21c0d5e14.png">
 
 2. 论文id检索：
-<img width="450" alt="image" src="https://user-images.githubusercontent.com/72379300/209373107-fdc03dc5-9717-433d-b76f-8b45bfc64fc9.png">
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/72379300/209373295-6c97a0b9-3d73-462c-8567-09e512ed8ac7.png">
 
 
 
