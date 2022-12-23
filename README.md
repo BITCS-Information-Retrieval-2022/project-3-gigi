@@ -30,6 +30,36 @@
 
 ### 2 检索环境配置
 
+1. ElasticSearch配置
+   * ElasticSearch安装并解压
+   
+      ```bash
+      wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.3.1-linux-x86_64.tar.gz
+      tar -zxvf elasticsearch-7.3.1-linux-x86_64.tar.gz -C /usr/local
+      ```
+      
+   * 运行ElasticSearch
+      ```bash
+      cd elasticsearch-7.3.1/
+      ./bin/elasticsearch
+      ```
+      
+   * 检查运行结果
+      ```bash
+      curl 'localhost:9200'
+      ```
+      <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
+    
+2. 检索模块运行
+   * 将仓库克隆至本地
+
+   * 切换到 backend 目录下：`cd project-3-gigi/backend`
+
+   * 安装依赖的第三方库：`pip install -r requirements.txt`
+
+   * 运行检索模块：`python communicator.py`
+
+
 ### 3 前端环境配置
 
 前端环境依赖于 NodeJs 环境和 Vue3框架，具体依赖的第三方库可参见 `frontend/package.json`
@@ -68,6 +98,13 @@
 ### 2 检索模块
 
 #### 2.1 设计原理
+* **创建index**
+
+  先创建index，然后从mongodb读取已经存好的数据，对于每条数据根据相应的json格式构建字段，最后将构建好的json存入elaticsearch。
+  
+* **对齐相应的ppt和视频**
+
+  先将paper和ebook存入mongodb，然后对于每个paper和ebook，我根据其title取相应的ppt和video网站上爬虫，将爬下来的最相关的10个存入mongodb，然后我们将这10个video或ppt的title与paper或ebook的title分词，如果两个title分词后的重叠率大于50%，我们则认为是相关的（这里的重叠只去掉标点，同步大小写后单词相同）。
 
 #### 2.2 效果展示
 
