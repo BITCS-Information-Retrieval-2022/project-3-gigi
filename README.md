@@ -49,7 +49,15 @@
       curl 'localhost:9200'
       ```
       <img width="350" alt="image" src="https://user-images.githubusercontent.com/72379300/209352292-04736cc1-ce25-4925-aa77-dbe6aed83294.png">
-
+      
+   * python elasticsearch库安装
+      ```bash
+      pip install elasticsearch
+      ```
+2. Flask库安装
+    ```bash
+    pip install Flask
+    ```
 
 
 ### 3 前端环境配置
