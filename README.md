@@ -58,6 +58,15 @@
     ```bash
     pip install Flask
     ```
+    
+3. 检索模块运行
+   * 将仓库克隆至本地
+
+   * 切换到 backend 目录下：`cd project-3-gigi/backend`
+
+   * 安装依赖的第三方库：`pip install requirement.txt`
+
+   * 启动前端程序：`npm run serve`
 
 
 ### 3 前端环境配置
