@@ -1,9 +1,10 @@
 <template>
-    <detail-nav></detail-nav>
+    <!-- <detail-nav></detail-nav> -->
     <div class="detail">
         <div class="source">
+            <div> <b>Year:</b> {{ item.year }} </div>
             <div> <b>Volume:</b> {{ item.volume }} </div>
-            <a v-if="isValidURL(item.source_url)" :href="item.source_url" ><b>DOI:</b> {{ item.doi }} </a>
+            <a v-if="isValidURL(item.source_url)" :href="item.source_url" ><b>Doi:</b> {{ item.doi }} </a>
         </div>
         <div class="title">
             <h1 v-html="item.title"></h1>
@@ -35,26 +36,25 @@
         <h2>摘要</h2>
         <div class="abstract" v-html="item.abstract"></div>
         <hr />
-        <h2>相关视频</h2>
-        <div class="related-video">
+        <!-- <h2>相关视频</h2>
+        <div class="related-video" :href="item.video_url" target="_blank">
             <video controls>
                 <source :src="item.video_url" type="video/*">
                 Download the <a href="item.video_url">video</a>.
             </video>
         </div>
-        <hr />
+        <hr /> -->
         <h2>参考文献</h2>
         <div class="references">
             <div v-for="(reference, index) in item.reference_list" :key="index">
-                <div class="reference-index">{{ index + 1 }}.</div>
-                <router-link :to="{ path: '/detail', query: {index: i, id: reference.id} }">
-                    <div class="reference-title" target="_blank" v-html="reference.title"></div>
-				</router-link>
-                <div class="reference-year">{{ reference.year }}</div>
+                <!-- <div class="reference-index">{{ index + 1 }}.</div> -->
+                <!-- <router-link :to="{ path: '/detail', query: {index: i, id: reference.id} }"> -->
+                    <div class="reference-title" target="_blank" v-html="index + 1 + '. ' + reference.title"></div>
+				<!-- </router-link> -->
             </div>
         </div>
+        <PageFooter></PageFooter>
 	</div>
-    <PageFooter></PageFooter>
 
 </template>
 

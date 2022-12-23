@@ -60,8 +60,6 @@ export default {
 </script>
 <style lang="less" scoped>
 .abstract-text {
-    // padding-top: 22px;
-    // margin-bottom: 16px;
     position: relative;
 
     .titleText {
@@ -76,22 +74,19 @@ export default {
     }
 
     .openClose {
-        // font-size: 0.16rem;
-        // color: rgb(189, 67, 62);
-
         background-color: rgb(189, 67, 62);
         border-radius: 0.1rem;
         font-size: 0.13rem;
         padding: 0 0.05rem 0 0.05rem;
         font-weight: 400;
         color: rgb(255, 255, 255);
+        cursor: pointer;
     }
 
     .openSpan {
         position: absolute;
         bottom: 0.03rem;
         right: 0;
-        // background-color: rgb(255, 102, 14);
         background-color: rgb(189, 67, 62);
         border-radius: 0.1rem;
         font-size: 0.13rem;
@@ -103,7 +98,6 @@ export default {
 			position: absolute;
 			top: 0;
 			left: 0.4rem;
-			// background-color: rgb(255, 102, 14);
 			background-color: #2600ff;
 			border-radius: 0.1rem;
 			font-size: 0.13rem;
@@ -124,7 +118,6 @@ export default {
         right: 2px;
         width: 48px;
         padding-left: 30px;
-        // background: linear-gradient(to right, rgba(255, 255, 255, 0.2), #fff 45%);
     }
 }
 </style>

@@ -10,25 +10,28 @@
 					<div class="title" target="_blank" v-html="item.title"></div>
 				</router-link>
 				<div class="related">
-					<a class="related-item" v-if="isValidURL(item.source_url)" target="_blank">
+					<a class="related-item" v-if="isValidURL(item.source_url)" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-bank"></i>&nbsp;来源
 					</a>
-					<a class="related-item" v-if="isValidURL(item.pdf_url)" target="_blank">
+					<a class="related-item" v-if="isValidURL(item.pdf_url)" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-file-pdf"></i>&nbsp;PDF
 					</a>
-					<a class="related-item" v-if="isValidURL(item.ebook_url)" target="_blank">
+					<a class="related-item" v-if="isValidURL(item.ebook_url)" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-book"></i>&nbsp;电子书
 					</a>
-					<a class="related-item" v-if="isValidURL(item.ppt_url)" :href="item.ppt_url" target="_blank">
+					<a class="related-item" v-if="isValidURL(item.ppt_url)" :href="item.ppt_url" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-file-ppt"></i>&nbsp;PPT
-					</a>
-					<a class="related-item" v-if="isValidURL(item.video_url)" target="_blank">
+					</a> 
+					<a class="related-item" v-if="isValidURL(item.video_url)" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-video1"></i>&nbsp;相关视频
 					</a>
-					<a class="related-item" v-if="item.citations_num > 0" target="_blank">
+					<a class="related-item" v-if="item.citations_num > 0" target="_blank" style="cursor: pointer">
 						<i class="iconfont icon-fire"></i>&nbsp;{{ item.citations_num }}
 					</a>
 				</div>
+				<span class="yearText" style="color:green">
+            		{{item.year}}-{{ item.volume }}
+        		</span>
 				<!-- <div class="content" v-html="item.abstract"></div> -->
 				<abstract :rawText=item.abstract></abstract>
 			</div>

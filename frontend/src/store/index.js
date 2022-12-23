@@ -25,7 +25,7 @@ export default createStore({
 
         },
         SetSearchResult(state, value) {
-            state.SearchResult = value
+            state.SearchResult = value['data']
         },
         SetDetailResult(state, value) {
             state.DetailResult.item = value
