@@ -1,157 +1,84 @@
 # project-3-gigi
+## 项目介绍
 
-## 分工
+本项目构建了学术资源爬虫系统，从 ACM 网站、library genesis 电子书网站、[YouTube](https://www.youtube.com/)、[PPT Silver](https://www.slideserve.com/tress/silver) 网站分别爬取了一定数据量的论文、电子书、学术视频和 PPT。并将这些数据保存在 MongoDB 中，之后通过 Elasticsearch 工具构建了针对这些学术资源的检索系统，通过 VueJs 前端框架构建了学术资源的综合检索展示平台。
 
-| 任务     | 成员1  | 成员2  |
-| -------- | ------ | ------ |
-| 爬虫模块 | 钱海   | 张成喆 |
-| 检索模块 | 米昊天 | 张圃瑒 |
-| 展示模块 | 徐正斐 | 杨欣运 |
+## 小组分工
 
-## 爬虫模块
+| 姓名   | 学号       | 分工                                                       |
+| ------ | ---------- | ---------------------------------------------------------- |
+| 钱海   |            |                                                            |
+| 张成喆 |            |                                                            |
+| 米昊天 |            |                                                            |
+| 张圃瑒 |            |                                                            |
+| 徐正斐 | 3120220978 | 前端：构建前端的基本框架和组件，完成Vuex状态管理和路由交互 |
+| 杨欣运 | 3120221010 | 前端：构建前端部分框架，修改一些bug                        |
 
-### 1 数据来源
+## 功能特色
 
-| 类别   | 网站            | 网址                                    |
-| ------ | --------------- | --------------------------------------- |
-| Paper  | SciHub          | http://www.sci-hub.ac.cn/               |
-| e-book | library genesis | http://gen.lib.rus.ec/                  |
-| e-book | eBooks          | http://www.ebooks.com/en-us/free/       |
-| PPT    | PPT Silver      | https://www.slideserve.com/tress/silver |
-| Video  | Bilibili        | https://www.bilibili.com/               |
-| Video  | Youtube         | https://www.youtube.com/                |
+1. 分页查询
+   * 每页显示固定数量的查询结果，解决一次查询结果过多的问题。
+   * 能够减轻网络负担。
+2. 视频与文档的对齐
+3. ......
 
-### 2 要求
+## 项目部署
 
-* 一个**MongoDB**数据库
-* 在仓库`README`中给出爬取数据的**统计信息**，例如每个数据源爬取的标签数、字段覆盖率等
+### 1 爬虫环境配置
 
-### 3 爬取信息
+### 2 检索环境配置
 
-......
+### 3 前端环境配置
 
-## 检索模块
+前端环境依赖于 NodeJs 环境和 Vue3框架，具体依赖的第三方库可参见 `frontend/package.json`
 
-### 1 要求
+1. 前端环境可以部署在Windows、Linux、MacOS，以 Ubuntu 为例
 
-* 从MongoDB中读取数据实现**综合检索**，要求无论是输入`论文`、`电子书`，都能得到相应的检索结果
+2. 安装 nodejs
 
-* 需要可以查看论文和电子书对应的PPT和视频，设计方法**去杂去重**，保证对齐的准确率
+   ```bash
+   sudo apt-get install nodejs
+   sudo apt-get install npm
+   ```
 
-* 可以自己实现搜索算法，也可以使用已有的搜索引擎工具，比如[Elasticsearch](https://www.elastic.co/)
+3. 配置项目依赖
 
-* 要求展示模块提供`论文电子书检索列表`、`相关视频查看按钮`、`相关文档查看按钮`，后两者需要展示相应链接并可以实现跳转
+   * 将仓库克隆至本地：`git clone https://github.com/BITCS-Information-Retrieval-2022/project-3-gigi.git`
 
-* 要求说明筛选PPT和视频的方法原理
+   * 切换到 frondend 目录下：`cd project-3-gigi/fronted`
+
+   * 安装依赖的第三方库：`npm install`
+
+   * 启动前端程序：`npm run serve`
+
+4. 前端部署
+
+   * 
+
+## 系统整体架构
+
+图
+
+## 各模块设计原理和效果展示
+
+### 1 爬虫模块
+
+#### 1.1 设计原理
+
+#### 1.2 效果展示
+
+### 2 检索模块
+
+#### 2.1 设计原理
+
+#### 2.2 效果展示
 
 
-### 2 检索接口
+### 3 展示模块
 
-......
+#### 3.1 设计原理
 
-## 展示模块
+#### 3.2 效果展示
 
-### 1 要求
 
-* 设计并实现一个学术类综合搜索引擎网站，包括三个页面
-
-  * 首页/搜索页
-  * 检索结果列表页
-
-  * 论文/电子书详情页面：
-    * 包含论文标题、作者、摘要、视频、文档等相关信息
-
-* 展示样例如下图所示：
-
-  * 搜索页面
-  
-  ![image-20221211133524659](https://s2.loli.net/2022/12/11/MlfnszYwdrKjV7c.png)
-  
-  * 搜索结果列表
-  
-    ![image-20221211133639580](https://s2.loli.net/2022/12/11/KlWuoinjNSGOQwr.png)
-  
-  * 论文详情页
-
-### 2 展示需求
-
-### 3 API
-
-* 分页搜索的 GET 请求
-
-  * `${baseUrl}/search?q=${q}&p=${p}`    q：查询的query；p：查询第几页
-  * http://localhost:8100/search?q={bert}&p=${1}
-
-* 分页搜索的响应格式
-
-  ```json
-  {
-      "code ": code,
-      "data": {
-          "page": page,                                   // 当前第几页（从1开始）
-          "searchCostTime": search_cost_time, // 搜索用时（单位为秒）
-          "totalNums": total_nums,                   // 总查询条目数
-          "pageNums": page_nums,                  // 总页数
-          "hitList": [                                        // 当前页的命中列表
-              {
-                  "id" : "1",
-                  "title": "Multiplex Graph Neural Network ...",
-                  "abstract": "Extractive text summarization aims at ...",
-                  "authors": ["Baoyu Jing", "Zeyu You", "Tao Yang"],
-                  "doi": "10.18653/v1/2021.emnlp-main.11",
-                  "url": "https://sci-hub.ee/10.18653/v1/2021.emnlp-main.11",
-                  "year": 2021,
-                  "month": 11,
-                  "type": "conference",
-                  "volume": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
-                  "source_url": "https://aclanthology.org/2021.emnlp-main.11/",
-                  "pdf_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
-                  "ebook_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
-                  "ppt_url": "https://www.slideserve.com/vera/text-summarization",
-                  "video_url": "https://aclanthology.org/2021.emnlp-main.11.mp4",
-                  "citations_num": 31,         // 被引次数
-                  "reference_list": [          // 参考文献列表
-                      {"id": "0", "title": "Multiplex ...", "year": "2021"}, 
-                      {"id": "4", "title": "Multiplex ...", "year": "2021"}, 
-                      {"id": "5", "title": "Multiplex ...", "year": "2021"}
-                  ]
-              }
-          ],
-      }
-  }
-  ```
-  
-* 论文详情页的 GET 请求
-  * `${baseUrl}/detail?id=${id}`    id：论文 id
-  * http://localhost:8100/detail?id={1}
-
-* 论文详情的响应格式
-
-  ```json
-  {
-      "id": "1",
-      "title": "Multiplex Graph Neural Network for Extractive Text Summarization",
-      "authors": ["Baoyu Jing", "Zeyu You", "Tao Yang"],
-      "abstract": "Extractive text summarization aims at ...",
-      "doi": "10.18653/v1/2021.emnlp-main.11",
-      "year": 2021,
-      "month": 11,
-      "type": "Conference",
-      "venue": "EMNLP",
-      "volume": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
-      "source_url": "https://aclanthology.org/2021.emnlp-main.11/",
-      "pdf_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
-      "ebook_url": "https://aclanthology.org/2021.emnlp-main.11.pdf",
-      "ppt_url": "https://www.slideserve.com/vera/text-summarization",
-      "video_url": "https://aclanthology.org/2021.emnlp-main.11.mp4",
-      "citations_num": 31,         // 被引次数
-      "reference_list": [          // 参考文献列表
-          {"id": "0", "title": "Multiplex ...", "year": "2021"}, 
-          {"id": "4", "title": "Multiplex ...", "year": "2021"}, 
-          {"id": "5", "title": "Multiplex ...", "year": "2021"}
-      ]     
-  }
-  ```
-
-  
 
