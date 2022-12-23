@@ -1,0 +1,3 @@
+https://dl.acm.org/action/doSearch?sortBy=cited&expand=all&field1=AllField&AfterYear=2019&BeforeYear=2019&AfterMonth=2&BeforeMonth=3&AfterDay=25&BeforeDay=1&startPage=0&pageSize=50
+https://dl.acm.org/action/doSearch?sortBy=cited&expand=all&field1=AllField&AfterYear=2011&BeforeYear=2011&AfterMonth=5&BeforeMonth=6&AfterDay=28&BeforeDay=1&startPage=0&pageSize=50
+https://dl.acm.org/action/doSearch?sortBy=cited&expand=all&field1=AllField&AfterYear=2011&BeforeYear=2011&AfterMonth=8&BeforeMonth=9&AfterDay=31&BeforeDay=4&startPage=0&pageSize=50
