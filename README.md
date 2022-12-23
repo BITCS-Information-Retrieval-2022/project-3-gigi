@@ -28,88 +28,6 @@
 
 ### 1 爬虫环境配置
 
-1. MongoDB配置：
-
-   - 安装依赖包：`apt-get install libcurl4 openssl`
-
-   - 下载解压安装：
-
-     - 从[MongoDB官网](https://www.mongodb.com/download-center/community)下载安装包；
-
-     - 选择tgz下载，并解压安装包：
-
-       ```shell
-       wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-5.0.5.tgz    # 下载
-       tar -zxvf mongodb-linux-x86_64-ubuntu1804-5.0.5.tgz                                # 解压
-       ```
-
-     - 将解压后的文件移动到指定目录：```mv mongodb-src-r5.0.5  /usr/local/mongodb ```
-
-     - 将MongoDB 的可执行文件添加到 PATH 路径中：```export PATH=/usr/local/mongodb/bin:$PATH```
-
-     - 创建目录并设置权限：
-
-       ```shell
-       sudo mkdir -p /var/lib/mongo           # 创建数据存储目录
-       sudo mkdir -p /var/log/mongodb         # 创建日志文件目录
-       sudo chown `whoami` /var/lib/mongo     # 设置权限
-       sudo chown `whoami` /var/log/mongodb   # 设置权限
-       ```
-
-     - 启动MongoDB：
-
-       ```shell
-       cd /usr/local/mongodb/
-       ./bin/mongod -f ./bin/mongodb.conf
-       ```
-
-     - 运行：```./bin/mongo```
-
-     - 出现如下欢迎信息，证明运行成功：
-
-       ```
-       MongoDB shell version v5.0.5
-       connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-       Implicit session: session { "id" : UUID("238aaa7e-5555-4030-8467-fc2a0b3ebb0b") }
-       MongoDB server version: 5.0.5
-       ================
-       
-       ...
-       
-       
-               To enable free monitoring, run the following command: db.enableFreeMonitoring()
-               To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
-       ---
-       >
-       ```
-
-
-
-2. Scrapy及其他Python第三方库配置：
-
-   - 切换至gigi_spider目录：`cd project-3-gigi/gigi_spider`
-
-   - 安装依赖包：```pip3 install -r requirements.txt```
-
-   - 测试运行：输入```scrapy```，出现以下内容，证明安装成功：
-
-     ```she
-     Scrapy 2.4.1 - no active project
-     
-     Usage:
-       scrapy <command> [options] [args]
-     
-     Available commands:
-       ...
-     
-       [ more ]      More commands available when run from project directory
-     
-     Use "scrapy <command> -h" to see more info about a command
-     ```
-
-   - 爬取数据：输入``` scrapy crawl acm```，开始爬取相关数据
-
-
 ### 2 检索环境配置
 
 1. ElasticSearch配置
@@ -176,34 +94,6 @@
 #### 1.1 设计原理
 
 #### 1.2 效果展示
-
-#### 1.3 代码结构说明
-
-```shell
-.
-├── gigi_spider
-│   ├── __init__.py
-│   ├── items.py
-│   ├── List	
-│   │   ├── acm_url_list.txt	// 待爬取区间
-│   │   ├── done_page.txt		// 已爬取页面
-│   │   ├── done_paper.txt		// 已爬取项目(论文为主)
-│   │   └── done_split.txt		// 已爬取区间
-│   ├── log
-│   ├── middlewares.py	// 中间件，主要处理各种请求
-│   ├── pipelines.py	// 流水线，与MongoDB交互
-│   ├── settings.py		// 具体配置
-│   └── spiders
-│       ├── acm.py		// ACM DL解析逻辑
-│       └── __init__.py
-├── other_spider
-│   ├── MyBiliCrawler.py	// Bilibili爬虫
-│   ├── MyLibgenCrawler.py	// library genesis爬虫
-│   └── MyYouTubeCrawler.py	// Youtube爬虫
-├── requirements.txt
-└── scrapy.cfg
-```
-
 
 ### 2 检索模块
 
@@ -384,6 +274,24 @@
 3. 搜索结果详情页
 
    <img src="https://s2.loli.net/2022/12/23/lj7wCqDhNWuHvx3.png" alt="img" style="zoom:20%;" />
+   
+#### 3.3 代码结构说明
+  ```
+  .
+  ├── package.json   // 依赖的第三方库、项目配置等信息
+  ├── public         // 公共资源
+  ├── src
+  │   ├── App.vue    // 根组件
+  │   ├── api        // 网络请求API
+  │   ├── assets     // 素材资源
+  │   ├── components // 组件库
+  │   ├── main.js    // 主入口
+  │   ├── mock       // mock 单元测试模块
+  │   ├── router     // 路由模块
+  │   ├── store      // vuex状态管理
+  │   └── views      // 三个页面的视图组件
+  └── vue.config.js  // vue 配置文件
+  ```
 
    
 
