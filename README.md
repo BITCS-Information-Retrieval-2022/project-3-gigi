@@ -101,7 +101,7 @@
 * **创建index**
   在python中使用 `elasticsearch` 库实现与elasticsearch搜索引擎的交互，使用 `pymongo` 库实现与mongodb数据库的交互。
  
-  借助 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取mongodb中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
+  通过 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取mongodb中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
   
   ```json
   {
@@ -124,7 +124,7 @@
   }  
   ```
   
-  先创建index，然后从mongodb读取已经存好的数据，对于每条数据根据相应的json格式构建字段，最后将构建好的json存入elaticsearch。
+  通过 `es.create(index='paper', id=id, body=json_item)` 将创建好的json格式对象导入elasticsearch下名为 `paper` 的index中，其中 `id` 为每个数据项的唯一标识，用于前端的查询。
   
 * **对齐相应的ppt和视频**
 
