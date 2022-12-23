@@ -299,14 +299,23 @@
   
   得到匹配结果后，我们将遍历查询结果，对每个item进行处理，并构建results\[\]：
   1. 若item的title与查询字符串完全一致：清空results\[\]，将如下json对象添加到results\[\]中，跳出循环：
+  
   ```python
   results.append({"item": item, "priority": 3, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
   ```
  
-  2. 若item的title中包含查询字符串：将`{"item": item, "priority": 2, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中。
+  2. 若item的title中包含查询字符串：将如下json对象添加到results\[\]中:
+  
+  ```python
+  results.append({"item": item, "priority": 2, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
+  ```
 
 
-  3. 若item的title中不包含查询字符串：将`{"item": item, "priority": 1, "year": (2022 - item['year']) // 5, "citations":int(['citations'])}`添加到results\[\]中
+  3. 若item的title中不包含查询字符串：将如下json对象添加到results\[\]中:
+
+  ```python
+  results.append({"item": item, "priority": 1, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
+  ```
   
   
   对于results\[\]中的item，根据"priority"、"year"、"citations"字段进行排序：
@@ -314,6 +323,8 @@
   ```python
   sorted_results = sorted(results, key=lambda x: (-x['priority'], x['year'], -x['citations']))
   ```
+  
+  该排序算法首先将根据paper、ebook的title中是否含有查询字符串进行分类；之后将根据paper、ebook的发表年份与2022年的间隔五年、五年汇聚为一个集群，并按照间隔年份降序排序；最后根据paper、ebook的引用数升序排序。
   
 * **前端通信**
 
@@ -352,6 +363,23 @@
 
 2. 论文id检索：
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/72379300/209373295-6c97a0b9-3d73-462c-8567-09e512ed8ac7.png">
+
+#### 2.3 代码结构说明
+  ```
+  .
+  ├── requirements.txt   // 依赖的第三方库、项目配置等信息
+  ├── src
+  │   ├── App.vue    // 根组件
+  │   ├── api        // 网络请求API
+  │   ├── assets     // 素材资源
+  │   ├── components // 组件库
+  │   ├── main.js    // 主入口
+  │   ├── mock       // mock 单元测试模块
+  │   ├── router     // 路由模块
+  │   ├── store      // vuex状态管理
+  │   └── views      // 三个页面的视图组件
+  └── vue.config.js  // vue 配置文件
+  ```
 
 
 
