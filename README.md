@@ -29,8 +29,6 @@
    * 能够减轻网络负担。
 5. 网页状态管理
    * 使用Vuex缓存查询结果，使得网页前后跳转时，不用多次请求数据。
-6. 视频与文档的对齐
-7. ......
 
 ## 项目部署
 
@@ -156,7 +154,7 @@
         "tagline" : "You Know, for Search"
       }
       ```
-    
+   
 2. 检索模块配置
 
    * 将仓库克隆至本地
@@ -201,10 +199,6 @@
    * 安装依赖的第三方库：`npm install`
 
    * 启动前端程序：`npm run serve`
-
-## 系统整体架构
-
-   - 图
 
 ## 各模块设计原理和效果展示
 
@@ -293,7 +287,7 @@
 * **index创建**
 
   index创建部分，使用 `elasticsearch` 库实现与ElasticSearch搜索引擎的交互，使用 `pymongo` 库实现与MongoDB数据库的交互。
- 
+
   通过 `db[collection[0]].aggregate([ {'$sample': {'size':need_num}}])` 命令读取MongoDB中的爬虫数据，对于每一个数据项，重新构建如下json格式对象：
   
   ```json
@@ -333,7 +327,7 @@
   ```python
   results.append({"item": item, "priority": 3, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
   ```
- 
+
   2. 若item的title中包含查询字符串：将如下json对象添加到results\[\]中:
   
   ```python
@@ -346,16 +340,16 @@
   ```python
   results.append({"item": item, "priority": 1, "year": (2022 - item['year']) // 5, "citations":int(['citations'])})
   ```
-  
-  
+
+
   对于results\[\]中的item，根据"priority"、"year"、"citations"字段进行排序：
-  
+
   ```python
   sorted_results = sorted(results, key=lambda x: (-x['priority'], x['year'], -x['citations']))
   ```
-  
+
   该排序算法首先将根据paper、ebook的title中是否含有查询字符串进行分类；之后将根据paper、ebook的发表年份与2022年的间隔五年、五年汇聚为一个集群，并按照间隔年份降序排序；最后根据paper、ebook的引用数升序排序。
-  
+
 * **前端通信**
 
   前端通信部分使用 `Flask` 库实现，`Flask` 是一个针对Python的轻量级Web框架。针对前端的请求类型，我们注册了两个路由，分别用于返回查询字符串对应的查询结果，和一篇特定论文/电子书的具体信息：
@@ -397,7 +391,6 @@
 #### 2.3 代码结构说明
   ```
   .
-
   ├── communicator.py // 主入口，前后端通信模块
   ├── api
   │   ├── cal_match_rate.py    // 计算对齐准确率
